@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #cnt{
+            width: 20%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 15px;
+            border-radius: 10px;
+            /* border: 1px solid red; */
+        }
+        h1{
+            font-size: 60px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        #dec{
+                background-color: red;
+                font-size: 20px;
+                border-radius: 10px;
+                padding: 10px;
+                cursor: pointer;
+                color: white;
+                margin: auto;
+        }
+        #inc{
+                background-color: rgb(17, 196, 41);
+                font-size: 20px;
+                border-radius: 10px;
+                padding: 10px;
+                cursor: pointer;
+                color: white;
+                margin: auto;
+        }
+        #cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="cnt">
+        <h1></h1>
+        <div id="cont">
+            <button id="dec">Decreement</button>
+            <button id="inc">Increement</button>
+        </div>
+        
+
+    </div>
+    
+</body>
+</html>
+
+<script>
+   var c=localStorage.getItem("counterValue")||0;
+//    if(localStorage.getItem("counterValue")==null){
+//        c=0
+//    }
+//    else{
+//        c=localStorage.getItem("counterValue")
+//    }
+   document.querySelector("h1").innerText=c
+
+   document.querySelector("#dec").addEventListener("click",decFun)
+
+   function decFun(){
+        c--
+        document.querySelector("h1").innerText=c
+        localStorage.setItem("counterValue",c)
+   }
+
+   document.querySelector("#inc").addEventListener("click",incFun)
+
+    function incFun(){
+        c++
+        document.querySelector("h1").innerText=c
+        localStorage.setItem("counterValue",c)
+    }
+</script>
