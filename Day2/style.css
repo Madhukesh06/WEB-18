@@ -1,0 +1,14 @@
+#nav{
+    display: flex;
+    justify-content: space-around;
+    font-size: 28px;
+    background-color: rgb(12, 9, 209);
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+a:hover{
+    color: red;
+}

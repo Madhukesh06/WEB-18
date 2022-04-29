@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../accesing keys/style.css">
+    <style>
+        #nav{
+    display: flex;
+    justify-content: space-around;
+    font-size: 28px;
+    background-color: rgb(12, 9, 209);
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+a:hover{
+    color: red;
+}
+        #cont{
+            /* border: 2px solid red; */
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            grid-template-rows: repeat(4,auto);
+            gap:10px;
+            margin: auto;
+            width: 90%;
+        }
+        h1{
+            text-align: center;
+            font-size: 70px;
+        }
+        #cont>div{
+            /* border: 2px solid green; */
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        img{
+            width: 100%;
+            /* height: 300px; */
+            
+        }
+        p+img{
+            width: 120px;
+            margin: auto;
+            /* border: 1px solid #000; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        h3{
+            width: 90%;
+            margin: auto;
+            margin-top: 5px;
+            font-size: 30px;
+            /* border: 2px solid yellow; */
+        }
+        p,h3{
+           text-align: center; 
+           
+        }
+        p{
+            font-size: 25px;
+            /* border: 2px solid yellow; */
+            margin-top: 5px;
+        }
+     
+    </style>
+
+</head>
+<body>
+    <div id="nav">
+        <div> <a href="backend.html">Backend</a> </div>
+        <div> <a href="frontend.html">Frontend</a></div>
+    </div>
+
+    <h1>Startegic Investors</h1>
+
+    <div id="cont"></div>
+</body>
+</html>
+
+<script>
+    var invar=JSON.parse(localStorage.getItem("invData"))
+    var box = document.querySelector("#cont")
+
+invar.forEach(function(el){
+var div1=document.createElement("div")
+
+var im=document.createElement("img")
+im.setAttribute("src",el.iimg)
+
+// console.log(el.avtar)
+var ptag=document.createElement("h3")
+ptag.innerText=el.iname
+
+var h3tag=document.createElement("p")
+h3tag.innerText=el.iroll
+
+var im1=document.createElement("img")
+im1.setAttribute("src",el.ilogo)
+
+div1.append(im,ptag,h3tag,im1)
+box.append(div1)
+})
+</script>
